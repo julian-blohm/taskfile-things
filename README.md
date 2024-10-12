@@ -45,3 +45,7 @@ You should be familiar with:
 - Basic Bash/Linux commands
 - YAML: as Taskfile are written in YAML
 - CI/CD: Basic understanding of CI/CD pipelines, how they work, and the basic application deployment process
+
+## Getting started
+- hello world file can be found in the 01 section
+- use `task --help` to get some first infos

@@ -3,6 +3,6 @@ version: '3'
 tasks:
   hello: # hello world task
     cmds:
-      - echo "Hello World" >> ./output.txt
+      - echo "Hello World" > ./output.txt
 
 # execute 'task hello' to execute to task
