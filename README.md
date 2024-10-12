@@ -8,6 +8,9 @@ We will focus on CI/CD stuff here
 - Homepage: https://taskfile.dev
 - Git Repo: https://github.com/go-task/task 
 
+## How to Install:
+just look here: https://taskfile.dev/installation/
+
 
 ## Sample Taskfile
 ```
