@@ -11,7 +11,6 @@ We will focus on CI/CD stuff here
 ## How to Install:
 just look here: https://taskfile.dev/installation/
 
-
 ## Sample Taskfile
 ```
 # Taskfile.yml
