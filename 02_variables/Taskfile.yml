@@ -1,0 +1,22 @@
+version: '3'
+
+tasks:
+  hello:
+    dotenv: # using dotenv variable and define it before
+      - '.env'
+    cmds:
+      - 'echo "Endpoint is: $ENDPOINT, Stage is: $STAGE"'
+  msg:
+    env: # using environment variables in tasks
+      MESSAGE: hello
+    cmds:
+      - 'echo "Message is: $MESSAGE"'
+      - 'echo "Home directoy ist: $HOME"' # using system variables
+  world:
+    vars: # using vars via cli with default
+      MYWORLD: '{{ .MYWORLD | default "HelloWorld" }}' 
+      SHELLVAR: # shell cmds can also be used for var value
+        sh: whoami
+    cmds:
+      - 'echo "My World is: {{ .MYWORLD }}"'
+      - 'echo "ShellVar content: {{.SHELLVAR}}"'

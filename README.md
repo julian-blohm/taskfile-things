@@ -26,6 +26,8 @@ tasks:
 - the hello task prints "Hello World from Task!" when executed. 
 - 'silent: true' suppresses output of the task
 
+Execute with `task hello`
+
 ## Why Taskfile
 Advantages over traditional build tools:
 - simplifies task automation with YAML
