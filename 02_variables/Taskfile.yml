@@ -20,3 +20,7 @@ tasks:
     cmds:
       - 'echo "My World is: {{ .MYWORLD }}"'
       - 'echo "ShellVar content: {{.SHELLVAR}}"'
+  print: # pre-defined vars not needed; they can be passed when task is executed
+    desc: "Prints the name"
+    cmds: 
+      - echo {{.NAME}}
