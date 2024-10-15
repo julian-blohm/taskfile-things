@@ -1,0 +1,13 @@
+version: '3'
+
+# execute with -p or --parallel flag: task --parallel t1 t2 t3
+tasks:
+  t1:
+    cmds:
+      - docker pull alpine:3.18
+  t2:
+    cmds:
+      - docker pull alpine:3.19
+  t3:
+    cmds:
+      - docker pull alpine:3.20
