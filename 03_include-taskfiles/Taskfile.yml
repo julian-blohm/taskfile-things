@@ -1,0 +1,13 @@
+version: '3'
+
+includes:
+  build-image: ../task-templates/docker-task.yml
+
+tasks:
+  build-app:
+    cmds: 
+      - task: build-image:docker:build
+        vars: 
+          SRC_DIR: .
+          NAME: test
+

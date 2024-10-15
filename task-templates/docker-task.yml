@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  docker:build:
+    desc: "Build docker image; provide image-name and source-directory as arguments"
+    cmds:
+      - docker build -t {{.NAME}} {{.SRC_DIR}}
