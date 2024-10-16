@@ -1,0 +1,34 @@
+version: '3'
+
+tasks:
+  npm:install: 
+    desc: "Install npm dependencies for the project in the specified source directory"
+    requires:
+      vars:
+        - SRC_DIR
+    dir: "{{.SRC_DIR}}"
+    cmds:
+      - npm install
+    sources: # checks for any changes and makes sure to only execute task if any; otherwise skipped
+      - package.json
+    # internal: true # can be used to ensure this task is only available within this taskfile
+  npm:build:
+    desc: "Build the npm project in the specified source directory"
+    deps: # define tasks this depends on; depending task will be executed when this one gets triggered
+      - npm:install
+    requires:
+      vars:
+        - SRC_DIR
+    dir: "{{.SRC_DIR}}"
+    sources:  #  .task directory will be created to store fingerprints; should be added to .gitignore
+      - '**/*.js'
+    cmds:
+      - npm run build
+
+
+
+
+
+  
+    
+
