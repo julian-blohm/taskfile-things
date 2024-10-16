@@ -1,0 +1,30 @@
+version: '3'
+
+
+tasks:
+  node-install:
+    # it is possible to create tasks that are executed only on specific operating systems
+    # useful when commands differ between platforms
+    # see available platforms here: https://github.com/golang/go/blob/master/src/internal/syslist/syslist.go
+    desc: "Install Node.js and npm based on the OS"
+    cmds:
+      - cmd: -|
+          echo "Installing nodejs and npm on Linux"
+          echo "Install finished"
+        platforms: # correct command would be: sudo apt-get update && sudo apt install -y nodejs npm
+          - linux
+      - cmd: -|
+          echo "Installing nodejs and npm on macOS"
+          echo "Install finished"
+        platforms: # correct commands would be: brew install nodejs; brew install npm
+          - darwin
+  npm:build:
+    desc: "Build npm project in the specified source directory"
+    requires: # require var as argument for the directory
+      vars:
+        - SRC_DIR
+    dir: "{{.SRC_DIR}}"
+    cmds:
+      - npm install && npm run build
+    # usage: task npm:build SRC_DIR=<your-source-dir>
+      
