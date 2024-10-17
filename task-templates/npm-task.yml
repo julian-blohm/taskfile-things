@@ -1,0 +1,20 @@
+version: '3'
+
+tasks:
+  install:
+    cmds:
+      - npm install
+    internal: true
+
+  lint:
+    cmds:
+      - eslint .
+    ignore_error: true # ignore linting errors https://taskfile.dev/usage/#ignore-errors
+    deps: [install]
+    internal: true
+
+  build:
+    cmds:
+      - npm run build
+      - defer: rm -rf .cache # use defer for cleanup tasks https://taskfile.dev/usage/#doing-task-cleanup-with-defer 
+    deps: [lint]
