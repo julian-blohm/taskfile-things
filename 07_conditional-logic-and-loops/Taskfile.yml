@@ -1,0 +1,15 @@
+version: '3'
+
+tasks:
+  condition-logic-task:
+    requires:
+      vars: # 'task condition-logic-task PLANET=mars' => to get hello only
+        - PLANET
+    vars: # task condition-logic-task WORLD_EXISTS=yes PLANET=mars 
+      WORLD_EXISTS: '{{ .WORLD_EXISTS | default "" }}'
+    cmds: # if checks empty or not
+      - 'echo {{if .WORLD_EXISTS}} You live on: {{.PLANET}}{{else}} Hello {{end}}'
+  loop-logic-task: # https://taskfile.dev/usage/#looping-over-a-static-list
+    cmds:
+      - for: ['Hello', 'World']
+        cmd: echo {{ .ITEM }}
